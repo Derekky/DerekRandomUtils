@@ -19,12 +19,11 @@ for sheet_name in sheet_names:
         text_grammar_df = df[["text"]]
         
         # Create a new column with JSON objects from the specified columns
-        if all(col in df.columns for col in ["response", "audio", "next_step", "Conclusion", "finaliza_atendimento"]):
+        if all(col in df.columns for col in ["response", "audio", "next_step", "finaliza_atendimento"]):
             df['category'] = df.apply(lambda row: '"' + json.dumps({
             "response": [row["response"]],
             "audio": [row["audio"]],
             "next_step": row["next_step"],
-            "Conclusion": row["Conclusion"],
             "finaliza_atendimento": row["finaliza_atendimento"]
             }, ensure_ascii=False).replace('"','""') 
             + '"', axis=1)
