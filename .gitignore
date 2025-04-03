@@ -1,0 +1,31 @@
+# Python-specific ignores
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment and dependency files
+env/
+venv/
+*.egg-info/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDE-specific ignores
+.vscode/
+.idea/
+
+# OS-specific ignores
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
