@@ -1,7 +1,10 @@
+# Old code to convert multiple sheets of an Excel file into a single CSV file.
+# It is more straightforward than v2
+
 import pandas as pd
 
-input_path = r"c:\Users\dersil\Desktop\grammar.xlsx"  # Update to the correct file path
-output_path = r"c:\Users\dersil\Desktop\grammar.csv"  # Update to the desired output path
+input_path = r"c:\Users\username\Desktop\grammar.xlsx"  # Update to the correct file path
+output_path = r"c:\Users\username\Desktop\grammar.csv"  # Update to the desired output path
 
 # Initialize an empty DataFrame to store all sheets
 combined_df = pd.DataFrame()
@@ -27,7 +30,7 @@ combined_df.to_csv(output_path, index=False, quotechar="|", sep=';')
 # Open the output CSV file and clean it
 with open(output_path, 'r') as file:
     content = file.read()
-content = content.replace("|", "").replace(";;", ";")
+content = content.replace("|", "").replace(";;", ";") #The second replace was specific to a certain use case
 with open(output_path, 'w') as file:
     file.write(content)
     

@@ -1,4 +1,6 @@
-#App to test the argparse module
+# Script to test the argparse module
+# Very useful for command line arguments
+
 import argparse
 
 parser = argparse.ArgumentParser()

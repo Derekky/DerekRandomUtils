@@ -1,3 +1,4 @@
+# This script retrieves all file names from a specified folder and saves them to an Excel file.
 import os
 import pandas as pd
 
@@ -14,6 +15,6 @@ def get_file_names_to_excel(folder_path, output_excel_path):
 
 # Example usage
 if __name__ == "__main__":
-    folder_path = r"C:\Users\dersil\Downloads\ANALISTA VIRUTAL"  # Replace with your folder path
-    output_excel_path = r"C:\Users\dersil\Desktop\FileNames.xlsx"  # Replace with your desired output path
+    folder_path = r"C:\Users\username\Downloads"  # Replace with your folder path
+    output_excel_path = r"C:\Users\username\Desktop\FileNames.xlsx"  # Replace with your desired output path
     get_file_names_to_excel(folder_path, output_excel_path)

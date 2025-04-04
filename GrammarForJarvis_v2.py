@@ -1,8 +1,12 @@
+#This code parses an Excel file with multiple sheets, extracts specific columns, and saves the data into a single CSV file.
+#It also handles JSON formatting in a way that ensures compatibility with CSV format.
+#This way a third-party application can first read the CSV file and then interpret the JSON inside it correctly.
+
 import pandas as pd
 import json
 
-input_path = r"c:\Users\dersil\Desktop\grammar.xlsx"  # Update to the correct file path
-output_path = r"c:\Users\dersil\Desktop\grammar.csv"  # Update to the desired output path
+input_path = r"c:\Users\username\Desktop\grammar.xlsx"  # Update to the correct file path
+output_path = r"c:\Users\username\Desktop\grammar.csv"  # Update to the desired output path
 
 # Initialize an empty DataFrame to store all sheets
 combined_df = pd.DataFrame()
