@@ -5,8 +5,8 @@
 import pandas as pd
 import json
 
-input_path = r"c:\Users\username\Desktop\grammar.xlsx"  # Update to the correct file path
-output_path = r"c:\Users\username\Desktop\grammar.csv"  # Update to the desired output path
+input_path = r"c:\Users\dersil\Desktop\grammar.xlsx"  # Update to the correct file path
+output_path = r"c:\Users\dersil\Desktop\ADA.csv"  # Update to the desired output path
 
 # Initialize an empty DataFrame to store all sheets
 combined_df = pd.DataFrame()
@@ -24,6 +24,9 @@ for sheet_name in sheet_names:
         
         # Create a new column with JSON objects from the specified columns
         if all(col in df.columns for col in ["response", "audio", "next_step", "finaliza_atendimento"]):
+            # First deal with multiple audio files in the same "audio" column
+            df["audio"] = df["audio"].apply(lambda x: x.replace(', ',',').replace(',\n',',').replace(',','","') if isinstance(x, str) else [])
+
             df['category'] = df.apply(lambda row: '"' + json.dumps({
             "response": [row["response"]],
             "audio": [row["audio"]],
@@ -51,7 +54,7 @@ combined_df.to_csv(output_path, index=False, quotechar="|", sep=';')
 # Open the output CSV file and clean it
 with open(output_path, 'r') as file:
     content = file.read()
-content = content.replace("|", "").replace(";;", ";").replace("[NaN]", '""').replace("NaN", '""')
+content = content.replace("|", "").replace(";;", ";").replace("[NaN]", '""').replace("NaN", '""').replace("nan", '""').replace('\\','')
 with open(output_path, 'w') as file:
     file.write(content)
     
